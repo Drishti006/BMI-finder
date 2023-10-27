@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </head>
+  <style>
+  body{
+    font-family: Times New Roman;
+  }
+    #main{
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      padding:30px;
+    }
+  </style>
+  <body>
+    <div class="container vh-100 d-flex justify-content-around align-items-center">
+      <div id="main" class=" d-flex flex-column justify-content-center align-items-center">
+        <h1 class="pb-3" style="text-align:center;">BMI Finder</h1>
+  <div class="mb-3">
+    <label for="height" class="form-label">Weight (in Kg)</label>
+    <input type="number" class="form-control" id="weight" >
+    
+  </div>
+  <div class="mb-3">
+    <label for="height" class="form-label">Height (in m)</label>
+    <input type="number" class="form-control" id="height">
+  </div>
+  <div class="mb-3">
+    <p></p>
+    <p id="recommend"></p>
+  </div>
+  <button id="button" class="btn btn-primary">Submit</button>
+</div>
+    </div>
+    <script>
+    const weight = document.getElementById('weight');
+    const height = document.getElementById('height');
+    const button = document.getElementById('button');
+    const result = document.querySelector('p');
+    const recommned = document.getElementById('recommend');
+    button.addEventListener('click', ()=>{
+      const weightText = weight.value;
+      const heightText = height.value;
+      const heightSq = heightText * 2;
+      const bmi = weightText/heightSq;
+      result.textContent = "BMI is: " + bmi.toFixed(2);
+      if(bmi < 18.5){
+        recommend.textContent = "You are underweight";
+      } else {
+        recommend.textContent = "You are healthy";
+      }
+      if(bmi > 25){
+          recommend.textContent = "You are Overweight";
+       }
+    });
+      
+    </script>
+  </body>
+</html>
